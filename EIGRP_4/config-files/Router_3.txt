@@ -1,0 +1,38 @@
+                                              Router 3
+
+en 
+config
+interface FastEathernet 0/0
+ip address 12.12.12.1 255.0.0.0
+no shutdown
+exit
+
+interface serial 0/0/0
+ip address 192.168.30.1 255.255.255.0
+clock rate 128000
+no shutdown
+exit
+
+interface serial 0/1/0 
+ip address 192.168.20.2 255.255.255.0
+no shutdown
+exit
+
+interface serial 0/0/1 
+ip address 192.168.50.1 255.255.255.0
+clock rate 128000
+no shutdown
+exit
+
+"EIGRP"
+router eigrp 10
+network 192.168.30.0 0.0.0.255
+network 192.168.20.0 0.0.0.255
+network 192.168.50.0 0.0.0.255
+network 12.12.12.0   0.255.255.255
+
+
+
+
+
+
